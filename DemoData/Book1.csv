@@ -1,0 +1,6 @@
+customer_id,directwrittenpremium_am,tax_am,commission_expense_am,service_expense_am,coverageamount,claimcount_ct,creditscore,customersatisfaction,complaintcount,householdincome,policy_renewed_flag,hazard_score,dwellingsquarefeet_ct,zip
+CUST001,12000,600,1200,300,500000,1,750,8,0,85000,1,0.25,2200,10001
+CUST002,18000,900,1800,450,750000,2,680,7,1,120000,1,0.35,2800,10002
+CUST003,9000,450,900,250,300000,0,810,9,0,65000,1,0.15,1800,10003
+CUST004,25000,1250,2500,600,1000000,4,620,5,3,150000,0,0.6,3200,10004
+CUST005,15000,750,1500,350,600000,1,720,8,0,95000,1,0.3,2400,10005
