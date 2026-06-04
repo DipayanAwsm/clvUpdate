@@ -1,0 +1,29 @@
+{
+  "model_name": "GradientBoostingClassifier",
+  "target_column": "policy_renewed_flag",
+  "features": [
+    "tenure_months",
+    "customertenure",
+    "claim_rate",
+    "claimcount_ct",
+    "expected_claims",
+    "netloss_paid_am",
+    "directwrittenpremium_am",
+    "earnedpremium_am",
+    "coverageamount",
+    "householdincome",
+    "creditscore",
+    "customersatisfaction",
+    "complaintcount",
+    "complaint_rate",
+    "hazard_score",
+    "monetary",
+    "average_order_value",
+    "monetary_per_tenure",
+    "premium_efficiency",
+    "tenure_band"
+  ],
+  "auc": 0.6589,
+  "output_column": "retention_probability",
+  "business_use": "Probability of next-term renewal used as survival base in P&C CLV."
+}

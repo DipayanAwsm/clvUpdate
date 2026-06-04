@@ -1,7 +1,7 @@
 {
-  "source_path": "backend/data/pnc_clv_training_sample_5000.csv",
+  "source_path": "data/clv_realistic_50000_5yr.csv",
   "shape": {
-    "rows": 5000,
+    "rows": 50000,
     "columns": 53
   },
   "columns": [

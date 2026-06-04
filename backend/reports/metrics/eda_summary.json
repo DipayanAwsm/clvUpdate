@@ -73,33 +73,33 @@
     "rows": [
       {
         "state": "CA",
-        "total_premium": 3942932.68,
-        "total_losses": 12133165.13,
-        "total_claim_count": 420
+        "total_premium": 41525315.25,
+        "total_losses": 132967824.15,
+        "total_claim_count": 4069
       },
       {
         "state": "FL",
-        "total_premium": 2803688.77,
-        "total_losses": 6084427.96,
-        "total_claim_count": 372
+        "total_premium": 30407854.92,
+        "total_losses": 72893546.67,
+        "total_claim_count": 4063
       },
       {
         "state": "NY",
-        "total_premium": 2399721.24,
-        "total_losses": 7176574.3,
-        "total_claim_count": 211
+        "total_premium": 27962483.7,
+        "total_losses": 85042766.71,
+        "total_claim_count": 2213
       },
       {
         "state": "WA",
-        "total_premium": 1418999.73,
-        "total_losses": 3907860.04,
-        "total_claim_count": 193
+        "total_premium": 16405565.92,
+        "total_losses": 47717663.32,
+        "total_claim_count": 1943
       },
       {
         "state": "TX",
-        "total_premium": 1017090.36,
-        "total_losses": 1951677.05,
-        "total_claim_count": 206
+        "total_premium": 11792612.53,
+        "total_losses": 27859136.14,
+        "total_claim_count": 2609
       }
     ]
   }

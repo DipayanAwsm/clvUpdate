@@ -19,7 +19,7 @@ from app.insights import (
     summarize_batch_predictions,
 )
 from app.utils import get_logger, read_json
-from training.pnc_clv_engine import add_pnc_clv_inputs
+from training.pnc_clv_engine import apply_renewal_propensity_model, ensure_pnc_clv_input_columns
 
 LOGGER = get_logger("clv-predictor")
 
@@ -118,10 +118,13 @@ class CLVPredictor:
         if raw_df.empty:
             raise ValueError("No records were provided for prediction.")
 
-        # Keep frontend unchanged: raw P&C records can be sent as before.
-        # The backend creates the same formula inputs used during training
-        # before selecting model features.
-        model_df, _ = add_pnc_clv_inputs(raw_df.copy())
+        model_df = raw_df.copy()
+
+        # Keep the frontend unchanged: if users upload/provide raw P&C fields,
+        # the backend derives the same CLV inputs used during training, including
+        # `expected_claims`, `service_expense_am`, and `retention_probability`.
+        model_df = ensure_pnc_clv_input_columns(model_df)
+        model_df = apply_renewal_propensity_model(model_df, model_dir=self.models_root)
 
         for col in self.expected_features:
             if col not in model_df.columns:
@@ -132,15 +135,12 @@ class CLVPredictor:
 
         return raw_df, model_df
 
-    def _input_details(self, raw_row: pd.Series, model_row: pd.Series) -> Tuple[List[str], List[str], float]:
+    def _input_details(self, raw_row: pd.Series) -> Tuple[List[str], List[str], float]:
         expected = self.expected_features
         selected_fields = [key for key, value in raw_row.to_dict().items() if pd.notna(value)]
 
-        # Missingness is checked after backend P&C formula input creation, so derived
-        # fields such as expected_claims and retention_probability are not falsely
-        # reported as missing to the frontend.
         missing_expected = [
-            feature for feature in expected if pd.isna(model_row.get(feature, np.nan))
+            feature for feature in expected if pd.isna(raw_row.get(feature, np.nan))
         ]
 
         if expected:
@@ -177,7 +177,7 @@ class CLVPredictor:
             reason_list = reason_codes(model_row, flag, clv_value, churn_risk)
             strategy = recommended_strategy(flag, prob, churn_risk)
             segment = customer_segment_from_clv(clv_value, self.high_value_threshold)
-            selected_fields, missing_fields, completeness = self._input_details(raw_row, model_row)
+            selected_fields, missing_fields, completeness = self._input_details(raw_row)
 
             payload = {
                 "predicted_clv": round(clv_value, 2),

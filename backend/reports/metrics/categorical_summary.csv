@@ -1,17 +1,17 @@
 column,unique_values,top_values
-customerid,5000,CUST000001:1; CUST000002:1; CUST000003:1; CUST000004:1; CUST000005:1
-policyeffective_dt,324,2021-11-04:28; 2021-09-25:27; 2021-11-19:24; 2021-07-10:24; 2021-12-14:24
-accounting_month,22,2021-11-30:445; 2021-12-31:402; 2021-10-31:380; 2022-01-31:339; 2021-09-30:338
-insureditem_tp,3,Home:3088; Rental:992; Condo:920
-policyratedstate_tp,5,FL:1158; CA:1152; TX:1041; NY:837; WA:812
-ratedcounty_tp,4,B:1304; D:1258; C:1234; A:1204
-integratedcoverage_tp,2,N:2740; Y:2260
-propertycoveragesubtype_tp,3,Standard:2299; Basic:1858; Premium:843
-construction_tp,3,Frame:1952; Masonry:1547; Mixed:1501
-roof_tp,3,Shingle:2110; Tile:1622; Metal:1268
-creditmodel_cd,4,C:1833; B:1492; A:852; D:823
-agent_channel,4,Independent:1732; Online:1368; Broker:1001; Direct:899
-new_existing_recurring_flag,1,New:5000
-incomebracket,4,Middle:2300; Upper Middle:1461; Low:905; High:334
-paymentmethod,4,Credit Card:1778; Auto Debit:1564; Bank Transfer:901; Debit Card:757
-marketingchannel,6,Agent Referral:1436; Online Search:1119; Partner Referral:797; Social Media:656; Aggregator:501
+customerid,20248,CUST000058:5; CUST000048:5; CUST000008:5; CUST000096:5; CUST000095:5
+policyeffective_dt,1620,2024-09-06:47; 2023-05-12:46; 2023-01-09:46; 2023-07-16:46; 2025-07-26:45
+accounting_month,70,2022-12-31:923; 2021-11-30:890; 2023-09-30:888; 2023-08-31:884; 2025-10-31:883
+insureditem_tp,3,Home:31088; Rental:9823; Condo:9089
+policyratedstate_tp,5,CA:11153; FL:10981; TX:10821; NY:8678; WA:8367
+ratedcounty_tp,4,B:12782; D:12692; A:12327; C:12199
+integratedcoverage_tp,2,N:27209; Y:22791
+propertycoveragesubtype_tp,3,Standard:23314; Basic:18148; Premium:8538
+construction_tp,3,Frame:19678; Masonry:15533; Mixed:14789
+roof_tp,3,Shingle:21234; Tile:15812; Metal:12954
+creditmodel_cd,4,C:17464; B:15429; A:9917; D:7190
+agent_channel,4,Independent:17093; Online:13789; Broker:10258; Direct:8860
+new_existing_recurring_flag,3,Existing:21106; New:20248; Recurring:8646
+incomebracket,4,Middle:22204; Upper Middle:15774; Low:7664; High:4358
+paymentmethod,4,Credit Card:17623; Auto Debit:16358; Bank Transfer:8737; Debit Card:7282
+marketingchannel,6,Agent Referral:14150; Online Search:11526; Partner Referral:7804; Social Media:6482; Aggregator:5092

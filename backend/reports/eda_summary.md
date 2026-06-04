@@ -1,7 +1,7 @@
 # EDA Summary
 
 ## Base Data Overview
-- Rows: **5000**
+- Rows: **50000**
 - Columns: **53**
 - Duplicate rows: **0**
 - Numeric columns: **37**

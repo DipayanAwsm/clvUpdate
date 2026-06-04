@@ -227,66 +227,35 @@ Keep modular code and provide Docker + Python/NPM quickstart commands.
 
 ## P&C CLV Formula Integration
 
-This project now uses a visible Property & Casualty (P&C) CLV formula in the backend training pipeline.
+This version integrates a manager-visible Property & Casualty CLV formula and a renewal propensity model.
 
-### Formula Inputs
-
-The CLV target is calculated with these business inputs:
+### Formula used for CLV target
 
 ```text
 Premium = directwrittenpremium_am
 Expected Claims = expected_claims
 Expenses = tax_am + commission_expense_am + service_expense_am
 Survival = retention_probability ** year
-Discount Rate = discount_rate
-Projection Years = projection_years
+
+P&C CLV = Σ [((Premium - Expected Claims - Expenses) × Survival) / ((1 + discount_rate) ** year)]
+          for year = 1 to projection_years
 ```
 
-### Full P&C CLV Formula
-
-```text
-Annual Profit = directwrittenpremium_am - expected_claims - (tax_am + commission_expense_am + service_expense_am)
-
-P&C CLV = Σ year=1..projection_years
-          (Annual Profit × (retention_probability ** year)) / ((1 + discount_rate) ** year)
-```
-
-### Where the Formula Is in Code
-
-The formula is implemented in:
+### Where the formula is implemented
 
 ```text
 backend/training/pnc_clv_engine.py
 ```
 
-Main function:
+Main functions:
 
 ```python
 calculate_pnc_clv(row)
+add_pnc_clv_columns(data, model_dir, train_renewal_model=True)
+train_or_apply_renewal_propensity(data, model_dir)
 ```
 
-The row-level target is created in:
-
-```python
-add_pnc_clv_target(data)
-```
-
-That function creates these columns:
-
-```text
-expected_claims
-service_expense_am
-retention_probability
-discount_rate
-projection_years
-pnc_expenses
-annual_profit
-clv_formula_value
-```
-
-### Where It Is Connected to Training
-
-The P&C CLV engine is called from:
+### Where it is connected to training
 
 ```text
 backend/training/feature_engineering.py
@@ -298,112 +267,62 @@ Function:
 _derive_insurance_clv_target(data, messages)
 ```
 
-That function calls:
+This function calls:
 
 ```python
-from training.pnc_clv_engine import add_pnc_clv_target
-
-enriched_data, clv_meta = add_pnc_clv_target(data)
+add_pnc_clv_columns(data, model_dir=MODELS_ROOT, train_renewal_model=True)
 ```
 
-Then the training target is assigned as:
+Then the generated P&C CLV is assigned to:
 
 ```python
-data["clv"] = pd.to_numeric(data["clv_formula_value"], errors="coerce").fillna(0.0)
+clv_formula_value
+clv
 ```
 
-### Where Regression Uses It
+The regression model then trains on `clv`.
 
-The regression model is trained in:
+### Renewal propensity model
+
+The renewal propensity model predicts:
 
 ```text
-backend/training/train_models.py
+retention_probability = P(policy renews next term)
 ```
 
-Function:
+It uses `policy_renewed_flag` as the target when available and features such as tenure, claim rate, expected claims, premium, income, credit score, satisfaction, complaints, hazard score, and state/channel fields.
 
-```python
-train_and_select_models(...)
-```
-
-The target column passed from feature engineering is `clv`, so the regression model learns to predict the P&C CLV value created by `pnc_clv_engine.py`.
-
-### How to Run
-
-From the project root:
-
-```bash
-cd clv_showcase_project
-python backend/training/run_pipeline.py --input-csv backend/data/clv_realistic_50000_5yr.csv
-```
-
-This creates/updates:
+The model artifact is saved to:
 
 ```text
-backend/data/processed/engineered_dataset.csv
-backend/data/processed/training_dataset.csv
-backend/data/processed/testing_dataset.csv
-backend/models/clv_regressor.pkl
-backend/models/high_value_classifier.pkl
-backend/models/metadata.json
+backend/models/renewal_propensity_model.pkl
+backend/models/renewal_propensity_metadata.json
 ```
 
-### How to Show Your Manager
+### Prediction-time integration
 
-Open this file:
-
-```text
-backend/training/pnc_clv_engine.py
-```
-
-Show these functions:
-
-```python
-add_pnc_clv_inputs(data)
-calculate_pnc_clv(row)
-add_pnc_clv_target(data)
-```
-
-The manager-visible formula is written directly inside `calculate_pnc_clv(row)`.
-
-### Prediction API Integration
-
-Frontend files were not changed. Prediction requests continue to use the existing FastAPI endpoints.
-
-At runtime, the backend also creates the P&C formula inputs before prediction in:
+The frontend was not changed. The backend now derives P&C CLV inputs and applies the saved renewal propensity model in:
 
 ```text
 backend/app/predictor.py
 ```
 
-Function:
+This means users can keep using the same React dashboard, upload flow, and prediction APIs.
 
-```python
-_prepare_dataframes(records)
-```
+### How to run
 
-It calls:
-
-```python
-model_df, _ = add_pnc_clv_inputs(raw_df.copy())
-```
-
-This means the frontend can send the same raw P&C customer records, and the backend will derive fields such as `expected_claims`, `service_expense_am`, `retention_probability`, `annual_profit`, and `projection_years` before model prediction.
-
-### Bundled Model Artifacts
-
-This ZIP includes refreshed model artifacts trained on a 5,000-row sample for quick local demo usability:
-
-```text
-backend/data/pnc_clv_training_sample_5000.csv
-backend/models/clv_regressor.pkl
-backend/models/high_value_classifier.pkl
-backend/models/metadata.json
-```
-
-For a full retrain on the 50,000-row raw P&C dataset, run:
+From the backend folder:
 
 ```bash
-cd clv_showcase_project
-PYTHONPATH=backend python backend/training/run_pipeline.py --input-csv backend/data/clv_realistic_50000_5yr.csv
+cd clv_showcase_project/backend
+PYTHONPATH=. python training/run_pipeline.py --input-csv data/clv_realistic_50000_5yr.csv
+uvicorn app.api:app --reload
+```
+
+From the frontend folder:
+
+```bash
+cd clv_showcase_project/frontend
+npm install
+npm run dev
 ```

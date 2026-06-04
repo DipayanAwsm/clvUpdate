@@ -62,6 +62,9 @@ def run_feature_selection(df: pd.DataFrame, target_col: str) -> FeatureSelection
         "action_priority",
         "recommended_action",
         "predicted_clv",
+        "clv_formula_value",
+        "pnc_clv",
+        "annual_profit",
     }
     removed_leakage = [col for col in feature_cols if col in leakage_columns and col != target_col]
     if removed_leakage:
