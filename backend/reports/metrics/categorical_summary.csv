@@ -1,0 +1,17 @@
+column,unique_values,top_values
+customerid,5000,CUST000001:1; CUST000002:1; CUST000003:1; CUST000004:1; CUST000005:1
+policyeffective_dt,324,2021-11-04:28; 2021-09-25:27; 2021-11-19:24; 2021-07-10:24; 2021-12-14:24
+accounting_month,22,2021-11-30:445; 2021-12-31:402; 2021-10-31:380; 2022-01-31:339; 2021-09-30:338
+insureditem_tp,3,Home:3088; Rental:992; Condo:920
+policyratedstate_tp,5,FL:1158; CA:1152; TX:1041; NY:837; WA:812
+ratedcounty_tp,4,B:1304; D:1258; C:1234; A:1204
+integratedcoverage_tp,2,N:2740; Y:2260
+propertycoveragesubtype_tp,3,Standard:2299; Basic:1858; Premium:843
+construction_tp,3,Frame:1952; Masonry:1547; Mixed:1501
+roof_tp,3,Shingle:2110; Tile:1622; Metal:1268
+creditmodel_cd,4,C:1833; B:1492; A:852; D:823
+agent_channel,4,Independent:1732; Online:1368; Broker:1001; Direct:899
+new_existing_recurring_flag,1,New:5000
+incomebracket,4,Middle:2300; Upper Middle:1461; Low:905; High:334
+paymentmethod,4,Credit Card:1778; Auto Debit:1564; Bank Transfer:901; Debit Card:757
+marketingchannel,6,Agent Referral:1436; Online Search:1119; Partner Referral:797; Social Media:656; Aggregator:501

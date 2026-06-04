@@ -1,0 +1,9 @@
+metric,value
+customer_count,1800.0
+avg_tenure_months,35.25472222222222
+tenure_months_std,13.779674227783934
+transactions_mean,7.109444444444445
+total_spend_mean,1169.3411277777777
+annual_income_mean,75818.65775
+clv_mean,4070.806783333333
+clv_std,849.8171203964984

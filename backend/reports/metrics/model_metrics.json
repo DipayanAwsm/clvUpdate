@@ -1,0 +1,96 @@
+{
+  "regression": [
+    {
+      "model": "RandomForestRegressor",
+      "r2": 0.9962883020134833,
+      "mae": 72.93996065455508,
+      "rmse": 135.1556123974703,
+      "mape": 3.4118583882465257
+    },
+    {
+      "model": "LinearRegression",
+      "r2": 0.951680928846351,
+      "mae": 339.64338110168967,
+      "rmse": 487.6486852086863,
+      "mape": 32.311233032112796
+    }
+  ],
+  "classification": [
+    {
+      "model": "RandomForestClassifier",
+      "accuracy": 0.986,
+      "precision": 0.965,
+      "recall": 0.965,
+      "f1": 0.965,
+      "roc_auc": 0.9983593749999999,
+      "confusion_matrix": [
+        [
+          793,
+          7
+        ],
+        [
+          7,
+          193
+        ]
+      ]
+    },
+    {
+      "model": "LogisticRegression",
+      "accuracy": 0.985,
+      "precision": 0.9302325581395349,
+      "recall": 1.0,
+      "f1": 0.963855421686747,
+      "roc_auc": 0.9997999999999999,
+      "confusion_matrix": [
+        [
+          785,
+          15
+        ],
+        [
+          0,
+          200
+        ]
+      ]
+    }
+  ],
+  "selected_regression_model": "RandomForestRegressor",
+  "selected_classification_model": "RandomForestClassifier",
+  "target_definition": {
+    "formula": "P&C CLV = sum_years(((directwrittenpremium_am - expected_claims - (tax_am + commission_expense_am + service_expense_am)) * (retention_probability ** year)) / ((1 + discount_rate) ** year))",
+    "description": "Training target computed using the P&C CLV formula: premium minus expected claims and expenses, adjusted by retention survival and discounting.",
+    "details": {
+      "available": true,
+      "column": "clv_formula_value",
+      "formula": "P&C CLV = sum_years(((directwrittenpremium_am - expected_claims - (tax_am + commission_expense_am + service_expense_am)) * (retention_probability ** year)) / ((1 + discount_rate) ** year))",
+      "business_formula": {
+        "Premium": "directwrittenpremium_am",
+        "Expected Claims": "expected_claims",
+        "Expenses": "tax_am + commission_expense_am + service_expense_am",
+        "Survival": "retention_probability ** year",
+        "Discount Rate": "discount_rate",
+        "Projection Years": "projection_years"
+      },
+      "details": {
+        "premium_column": "directwrittenpremium_am",
+        "expected_claims_method": "derived: claim_frequency * coverageamount * hazard_score_factor * loss_cost_factor",
+        "tax_column": "tax_am",
+        "commission_column": "commission_expense_am",
+        "service_expense_column": "admin_expense_am",
+        "retention_probability_method": "derived: renewal + satisfaction + credit_score - complaints - payment_delay",
+        "discount_rate_column": "discountrate",
+        "projection_years_column": "default:5",
+        "loss_cost_factor_when_expected_claims_missing": 0.02
+      }
+    },
+    "high_value_quantile": 0.8,
+    "high_value_threshold": 4986.515900406929
+  },
+  "mlflow": {
+    "enabled": false,
+    "tracking_uri": null,
+    "experiment_name": null,
+    "run_id": null,
+    "regressor_model_uri": null,
+    "classifier_model_uri": null
+  }
+}

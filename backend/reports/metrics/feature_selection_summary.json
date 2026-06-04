@@ -1,0 +1,242 @@
+{
+  "methods": {
+    "correlation_top": [
+      "clv_formula_value",
+      "profit",
+      "netloss_paid_am",
+      "grosslosspaio_am",
+      "claimcount_ct",
+      "claim_rate",
+      "customersatisfaction",
+      "complaintcount",
+      "complaint_rate",
+      "engagement_score"
+    ],
+    "mutual_info_top": [
+      "clv_formula_value",
+      "earnedpremium_am",
+      "profit",
+      "monetary",
+      "directwrittenpremium_am",
+      "average_order_value",
+      "tax_am",
+      "admin_expense_am",
+      "commission_expense_am",
+      "netloss_paid_am"
+    ],
+    "rfecv_selected": [
+      "earnedpremium_am",
+      "tax_am",
+      "grosslosspaio_am",
+      "netloss_paid_am",
+      "householdincome",
+      "creditscore",
+      "clv_formula_value",
+      "profit"
+    ],
+    "rf_importance_top": [
+      "clv_formula_value",
+      "profit",
+      "netloss_paid_am",
+      "grosslosspaio_am",
+      "earnedpremium_am",
+      "tax_am",
+      "creditscore",
+      "householdincome",
+      "discountrate",
+      "dwellingsquarefeet_ct"
+    ],
+    "lasso_top": [
+      "netloss_paid_am",
+      "monetary",
+      "coverageamount",
+      "ppcvrglimit_am",
+      "directwrittenpremium_am",
+      "grosslosspaio_am",
+      "clv_formula_value",
+      "earnedpremium_am",
+      "admin_expense_am",
+      "customertenure"
+    ]
+  },
+  "final_shortlist": [
+    "netloss_paid_am",
+    "tax_am",
+    "householdincome",
+    "creditscore",
+    "claimcount_ct",
+    "claim_rate",
+    "monetary",
+    "directwrittenpremium_am",
+    "coverageamount",
+    "customersatisfaction",
+    "average_order_value",
+    "complaintcount",
+    "commission_expense_am",
+    "monetary_per_tenure",
+    "policy_renewed_flag",
+    "hazard_score",
+    "dwellingsquarefeet_ct",
+    "zip"
+  ],
+  "top_ranked": [
+    {
+      "feature": "clv_formula_value",
+      "correlation": 1.0,
+      "mutual_info": 8.642395717229325,
+      "rf_importance": 0.8822375306156733,
+      "rfecv": 1,
+      "lasso_abs_coef": 1501.5114604826992,
+      "combined_score": 0.8166624870675714,
+      "selection_votes": 5.0
+    },
+    {
+      "feature": "netloss_paid_am",
+      "correlation": 0.9978897732745265,
+      "mutual_info": 1.14196663173978,
+      "rf_importance": 0.024794247135824114,
+      "rfecv": 1,
+      "lasso_abs_coef": 18022.657174689666,
+      "combined_score": 0.6316257009375608,
+      "selection_votes": 5.0
+    },
+    {
+      "feature": "profit",
+      "correlation": 0.9999303466877727,
+      "mutual_info": 3.882925877688172,
+      "rf_importance": 0.08041695722423975,
+      "rfecv": 1,
+      "lasso_abs_coef": 0.0,
+      "combined_score": 0.5080738284468318,
+      "selection_votes": 4.0
+    },
+    {
+      "feature": "grosslosspaio_am",
+      "correlation": 0.997093853825852,
+      "mutual_info": 1.0560811192423056,
+      "rf_importance": 0.011954565621032176,
+      "rfecv": 1,
+      "lasso_abs_coef": 1798.9618060952328,
+      "combined_score": 0.4465316035404441,
+      "selection_votes": 4.0
+    },
+    {
+      "feature": "earnedpremium_am",
+      "correlation": 0.13888722655186572,
+      "mutual_info": 4.6793034256985395,
+      "rf_importance": 0.00010578372757900063,
+      "rfecv": 1,
+      "lasso_abs_coef": 1297.5404359467254,
+      "combined_score": 0.350487494164361,
+      "selection_votes": 4.0
+    },
+    {
+      "feature": "tax_am",
+      "correlation": 0.1334057838191382,
+      "mutual_info": 1.575490939982691,
+      "rf_importance": 5.365546233763796e-05,
+      "rfecv": 1,
+      "lasso_abs_coef": 4.47404706982164,
+      "combined_score": 0.2632024512421523,
+      "selection_votes": 3.0
+    },
+    {
+      "feature": "householdincome",
+      "correlation": 0.020088200288747717,
+      "mutual_info": 0.0,
+      "rf_importance": 3.2956082919909384e-05,
+      "rfecv": 1,
+      "lasso_abs_coef": 0.12315319837214353,
+      "combined_score": 0.20402637147583486,
+      "selection_votes": 2.0
+    },
+    {
+      "feature": "creditscore",
+      "correlation": 0.007409133621080165,
+      "mutual_info": 0.01858635332626779,
+      "rf_importance": 4.1552193625920674e-05,
+      "rfecv": 1,
+      "lasso_abs_coef": 0.8297044874452241,
+      "combined_score": 0.20193046794617278,
+      "selection_votes": 2.0
+    },
+    {
+      "feature": "claimcount_ct",
+      "correlation": 0.7223142537700759,
+      "mutual_info": 0.5129157333461729,
+      "rf_importance": 5.852862193539456e-06,
+      "rfecv": 0,
+      "lasso_abs_coef": 47.78699135853499,
+      "combined_score": 0.15686412849785838,
+      "selection_votes": 1.0
+    },
+    {
+      "feature": "claim_rate",
+      "correlation": 0.6894032340760066,
+      "mutual_info": 0.506106236833771,
+      "rf_importance": 9.501489792391091e-06,
+      "rfecv": 0,
+      "lasso_abs_coef": 22.80039338049257,
+      "combined_score": 0.1498478883055079,
+      "selection_votes": 1.0
+    },
+    {
+      "feature": "monetary",
+      "correlation": 0.14124414796939402,
+      "mutual_info": 1.886562776410556,
+      "rf_importance": 1.5170143782580552e-05,
+      "rfecv": 0,
+      "lasso_abs_coef": 3962.4486598095123,
+      "combined_score": 0.11588234986981369,
+      "selection_votes": 2.0
+    },
+    {
+      "feature": "directwrittenpremium_am",
+      "correlation": 0.14124414796939402,
+      "mutual_info": 1.8865420730887656,
+      "rf_importance": 1.1446686764477935e-05,
+      "rfecv": 0,
+      "lasso_abs_coef": 2713.4078553258237,
+      "combined_score": 0.10202024251527202,
+      "selection_votes": 2.0
+    },
+    {
+      "feature": "admin_expense_am",
+      "correlation": 0.13803342139705552,
+      "mutual_info": 1.3919452978725717,
+      "rf_importance": 4.743015239143581e-06,
+      "rfecv": 0,
+      "lasso_abs_coef": 1269.1574592469672,
+      "combined_score": 0.07390369893851359,
+      "selection_votes": 2.0
+    },
+    {
+      "feature": "coverageamount",
+      "correlation": 0.12024329436102256,
+      "mutual_info": 0.5505798481421911,
+      "rf_importance": 1.1718396633537141e-05,
+      "rfecv": 0,
+      "lasso_abs_coef": 3323.316459909953,
+      "combined_score": 0.07367189734141875,
+      "selection_votes": 1.0
+    },
+    {
+      "feature": "ppcvrglimit_am",
+      "correlation": 0.12024329436102256,
+      "mutual_info": 0.5505828175023213,
+      "rf_importance": 1.1953465009025535e-05,
+      "rfecv": 0,
+      "lasso_abs_coef": 3321.573504676311,
+      "combined_score": 0.07365267752362434,
+      "selection_votes": 1.0
+    }
+  ],
+  "selection_notes": [
+    "Feature selection executed on a representative 20,000-row sample for runtime efficiency.",
+    "Excluded leakage-prone columns from feature selection: high_value_flag",
+    "Excluded identifier-style columns with low generalization value: fullpolicy_nb",
+    "Excluded high-cardinality categorical fields to reduce overfit risk: policyeffective_dt",
+    "Excluded zero/near-zero variance fields: premium_efficiency, tenure_band",
+    "RFECV skipped for runtime safety on large/high-dimensional data; retained top tree-importance features as RFECV proxy."
+  ]
+}

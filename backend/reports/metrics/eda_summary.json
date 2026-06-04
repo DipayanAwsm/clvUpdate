@@ -1,0 +1,106 @@
+{
+  "numeric_columns": [
+    "fullpolicy_nb",
+    "year",
+    "zip",
+    "hazard_score",
+    "dwellingsquarefeet_ct",
+    "dwellingstory_ct",
+    "home_age_yr",
+    "has_mortgage",
+    "ratedinsuredage_ct",
+    "meritpoint_ct",
+    "directwrittenpremium_am",
+    "earnedpremium_am",
+    "tax_am",
+    "commission_expense_am",
+    "admin_expense_am",
+    "ppcvrglimit_am",
+    "grosslosspaio_am",
+    "claimcount_ct",
+    "earnedexposure_ct",
+    "writenexposure_ct",
+    "policyterm_ct",
+    "seasonal_in",
+    "multiproductdiscount_flag",
+    "delequencyflag",
+    "discountrate",
+    "netloss_paid_am",
+    "policy_renewed_flag",
+    "customertenure",
+    "coverageamount",
+    "deductible",
+    "customersatisfaction",
+    "complaintcount",
+    "paymentdelaydays",
+    "agentexperienceyears",
+    "propertyvalue",
+    "householdincome",
+    "creditscore"
+  ],
+  "categorical_columns": [
+    "customerid",
+    "policyeffective_dt",
+    "accounting_month",
+    "insureditem_tp",
+    "policyratedstate_tp",
+    "ratedcounty_tp",
+    "integratedcoverage_tp",
+    "propertycoveragesubtype_tp",
+    "construction_tp",
+    "roof_tp",
+    "creditmodel_cd",
+    "agent_channel",
+    "new_existing_recurring_flag",
+    "incomebracket",
+    "paymentmethod",
+    "marketingchannel"
+  ],
+  "target_column": null,
+  "target_readiness": {
+    "target_available": false,
+    "target_numeric": false,
+    "target_unique_values": 0,
+    "target_std": 0.0
+  },
+  "top_drivers": [],
+  "state_wise_summary": {
+    "available": true,
+    "state_column": "policyratedstate_tp",
+    "premium_column": "earnedpremium_am",
+    "loss_column": "netloss_paid_am",
+    "claim_column": "claimcount_ct",
+    "rows": [
+      {
+        "state": "CA",
+        "total_premium": 3942932.68,
+        "total_losses": 12133165.13,
+        "total_claim_count": 420
+      },
+      {
+        "state": "FL",
+        "total_premium": 2803688.77,
+        "total_losses": 6084427.96,
+        "total_claim_count": 372
+      },
+      {
+        "state": "NY",
+        "total_premium": 2399721.24,
+        "total_losses": 7176574.3,
+        "total_claim_count": 211
+      },
+      {
+        "state": "WA",
+        "total_premium": 1418999.73,
+        "total_losses": 3907860.04,
+        "total_claim_count": 193
+      },
+      {
+        "state": "TX",
+        "total_premium": 1017090.36,
+        "total_losses": 1951677.05,
+        "total_claim_count": 206
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+sample_row,predicted_clv,high_value_flag,high_value_probability,customer_segment,recommended_action
+1,24908.57,1,0.9998,Strategic Premium,"Prioritize loyalty, proactive account management, and upsell offers."
+2,24186.45,1,0.9998,Strategic Premium,"Prioritize loyalty, proactive account management, and upsell offers."
+3,5660.92,0,0.4877,Strategic Premium,Run nurture journeys with targeted cross-sell and engagement nudges.
+4,5583.12,0,0.4877,Strategic Premium,Run nurture journeys with targeted cross-sell and engagement nudges.
+5,-49167.88,0,0.0027,Base Portfolio,Manage through cost-efficient automated engagement and periodic monitoring.
+6,23801.24,0,0.2201,Strategic Premium,Manage through cost-efficient automated engagement and periodic monitoring.
+7,4126.38,0,0.3549,Strategic Premium,Manage through cost-efficient automated engagement and periodic monitoring.
+8,7036.81,1,0.9998,Strategic Premium,"Prioritize loyalty, proactive account management, and upsell offers."
+9,3360.96,0,0.0049,High Value,Manage through cost-efficient automated engagement and periodic monitoring.
+10,3109.46,0,0.0049,Growth Potential,Manage through cost-efficient automated engagement and periodic monitoring.
+11,-31068.39,0,0.0027,Base Portfolio,Manage through cost-efficient automated engagement and periodic monitoring.
